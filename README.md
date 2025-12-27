@@ -168,8 +168,8 @@ User Receives Answer
 
 - **陳昊軒** - PM, responsible for AI customer service chatbot
 - **陳為政** - Responsible for AI customer service chatbot
-- **何承澔** - Model attribute search
-- **高毅峻** - Frontend page integration
+- **何承澔** - Frontend page integration
+- **高毅峻** - Model attribute search
 
 ## Acknowledgments
 
