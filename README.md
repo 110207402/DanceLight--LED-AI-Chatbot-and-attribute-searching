@@ -81,7 +81,8 @@ DanceLight--LED-AI-Chatbot-and-attribute-searching/
 ├── temp_pages/                 
 ├── requirements.txt            
 ├── README.md                   
-└── .gitignore                  
+└── .gitignore
+└── .env                  
 ```
 
 ### Main File Descriptions
@@ -90,12 +91,11 @@ DanceLight--LED-AI-Chatbot-and-attribute-searching/
 - **`ai_chat_page.py`**: AI customer service chat interface, uses multi-threading (`RAGWorker`) to avoid UI freezing, supports typewriter animation for AI responses
 - **`model_search_page.py`**: Model search page, provides search box and result card display (with animation effects)
 - **`docling_rag_v5.py`**: System's core RAG engine, includes:
-  - `PDFSplitter`: Splits large PDF into single-page files
-  - `DoclingParser`: Uses Docling to parse PDF and extract Markdown format content
-  - `QueryExpander`: Uses GPT-4o-mini to expand query keywords
-  - `search_with_hybrid_device()`: Hybrid device retrieval function (Embedding CPU + Reranker MPS/GPU)
-  - `RAG`: RAG class for generating final answers
-  - `DoclingRAGSystem`: Main system class integrating all components
+  - `Config`: Dataclass for all system configurations (models, paths, search parameters)
+  - `Page`: Dataclass representing a parsed PDF page with content
+  - `Models`: Lazy-loaded singleton managing embedding model, reranker, and OpenAI client with hybrid device support (Embedding CPU + Reranker MPS/GPU)
+  - `PDFParser`: Splits PDF into single pages, uses Docling to extract Markdown content, handles caching
+  - `RAGSystem`: Main system class integrating two-stage retrieval (embedding filter → rerank) and answer generation with query expansion
 
 ## Analysis
 
