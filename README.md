@@ -28,7 +28,7 @@ This system solves the pain point of traditional product catalogs requiring manu
 1. **Clone the Project**
 
 ```bash
-git clone https://github.com/yourusername/DanceLight--LED-AI-Chatbot-and-attribute-searching.git
+git clone https://github.com/110207402/DanceLight--LED-AI-Chatbot-and-attribute-searching.git
 cd DanceLight--LED-AI-Chatbot-and-attribute-searching
 ```
 
@@ -45,7 +45,10 @@ pip install -r requirements.txt
 
 3. **Configure OpenAI API Key**
 
-   Edit `.env` and replace with your actual API key:
+   Copy the example file, then edit your local `.env` (which is ignored by Git):
+```bash
+   cp .env.example .env
+```
 ```
    OPENAI_API_KEY=sk-your-api-key-here
 ```
@@ -75,14 +78,13 @@ DanceLight--LED-AI-Chatbot-and-attribute-searching/
 ├── dancelight_logo.jpg         
 ├── 2025舞光LED21st(單頁水印可搜尋).pdf  # Product catalog data source (need to prepare yourself)
 │
-├── docling_cache/              # Cache directory - Stores parsed PDF page content and pre-calculated embeddings
-│   └── parsed_data.pkl
+├── docling_cache/              # Generated locally; ignored by Git
 │
 ├── temp_pages/                 
 ├── requirements.txt            
 ├── README.md                   
+├── .env.example               # Placeholder only; copy to .env locally
 └── .gitignore
-└── .env                  
 ```
 
 ### Main File Descriptions
@@ -150,7 +152,7 @@ User Receives Answer
 
 ## Results
 
-### Retrieval Performance (Based on Actual Testing)
+### Prototype Runtime Observations
 
 | Metric                     | Value                          |
 |------------------------|-------------------------------|
@@ -162,6 +164,8 @@ User Receives Answer
 | **Reranker Ranking Time**   | Approximately 2-4 seconds (processing 50-80 page candidates)   |
 | **GPT Generation Time**        | Approximately 1-3 seconds (depending on answer length)      |
 
+These figures are development observations from the capstone prototype rather than a controlled retrieval benchmark. They depend on hardware, catalog version, model availability, and network latency. A production evaluation should add a labeled query set, retrieval metrics (for example Recall@k and MRR), answer-grounding review, cost, and failure-case analysis.
+
 
 ## Contributors
 
@@ -169,6 +173,8 @@ User Receives Answer
 - **陳為政** - Responsible for AI RAG chatbot
 - **何承澔** - Frontend page integration
 - **高毅峻** - Model attribute search
+
+This repository preserves the original team attribution. Hao-Hsuan Chen served as project manager and co-developed the RAG chatbot; the work was completed as an industry capstone with evolving stakeholder requirements.
 
 ## Acknowledgments
 
